@@ -1,28 +1,22 @@
+import React, { Component } from "react";
 import logo from "./logo.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { Button } from "reactstrap";
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Tuyen1995 Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Button color="danger">Danger!</Button>
-    </div>
-  );
+import { Navbar, NavbarBand } from "reactstrap";
+import Menu from "./components/MenuComponent";
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Navbar dark color="primary">
+          <div className="container">
+            {/* <NavbarBand href="/">Ristorante Con Fusion</NavbarBand> */}
+          </div>
+        </Navbar>
+        <Menu />
+      </div>
+    );
+  }
 }
 
 export default App;
