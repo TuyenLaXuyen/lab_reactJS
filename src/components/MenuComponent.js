@@ -42,7 +42,7 @@ class Menu extends Component {
       return (
         <div key={dish.id} className="col-12 col-md-5 m-1">
           <Card onClick={() => this.onDishSelect(dish)}>
-            <CardImg width="100%" object src={dish.image} alt={dish.name} />
+            <CardImg width="100%" src={dish.image} alt={dish.name} />
             <CardImgOverlay>
               <CardTitle>{dish.name}</CardTitle>
             </CardImgOverlay>
@@ -54,7 +54,9 @@ class Menu extends Component {
     return (
       <div className="container">
         <div className="row">{menu}</div>
-        <div className="row">{this.renderDish(this.state.selectedDish)}</div>
+        <div className="col-ms-12 col-xs-12 col-md-5 m-1">
+          {this.renderDish(this.state.selectedDish)}
+        </div>
       </div>
     );
   }
