@@ -21,15 +21,41 @@ class StaffList extends Component {
     this.setState({ selectedStaff: staff });
   }
 
+  renderStaff(staff) {
+    if (staff != null) {
+      return (
+        <Card className="col-lg-3 col-md-5 col-xs-12 m-1 text-start ">
+          <CardTitle tag="h3">{staff.name}</CardTitle>
+          <CardText>
+            Ngày sinh:{" "}
+            {new Intl.DateTimeFormat("en-GB").format(
+              new Date(Date.parse(staff.doB))
+            )}
+          </CardText>
+          <CardText>
+            Ngày vào công ty:{" "}
+            {new Intl.DateTimeFormat("en-GB").format(
+              new Date(Date.parse(staff.startDate))
+            )}
+          </CardText>
+          <CardText>Phòng ban: {staff.department.name}</CardText>
+          <CardText>Số ngày nghỉ còn lại: {staff.annualLeave}</CardText>
+          <CardText>Số ngày đã làm thêm: {staff.overTime}</CardText>
+        </Card>
+      );
+    }
+  }
+
   render() {
     console.log(this.props.staffs);
     const liststaff = this.props.staffs.map((staff) => {
       return (
-        <div key={staff.id} className="col-12 col-md-5 m-1">
+        <div
+          key={staff.id}
+          className="col-lg-3 col-md-5 col-xs-12 m-1 text-start"
+        >
           <Card onClick={() => this.onStaffSelect(staff)}>
-            <CardImgOverlay>
-              <CardTitle>{staff.name}</CardTitle>
-            </CardImgOverlay>
+            <CardTitle>{staff.name}</CardTitle>
           </Card>
         </div>
       );
@@ -38,6 +64,11 @@ class StaffList extends Component {
     return (
       <div className="container">
         <div className="row">{liststaff}</div>
+        <div className="row m-1">
+          {this.state.selectedStaff != null
+            ? this.renderStaff(this.state.selectedStaff)
+            : "Bấm vào tên nhân viên để xem thông tin"}
+        </div>
       </div>
     );
   }

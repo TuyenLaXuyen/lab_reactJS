@@ -22,7 +22,7 @@ class App extends Component {
             <p>Ứng dụng quản lý nhân sự v1.0</p>
           </div>
         </Navbar>
-        <StaffList />
+        <StaffList staffs={this.state.staffs} />
       </div>
     );
   }
