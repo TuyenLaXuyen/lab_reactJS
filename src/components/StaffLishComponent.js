@@ -15,6 +15,10 @@ class StaffList extends Component {
     this.state = {
       selectedStaff: null,
       col: "col-lg-3 col-md-5 col-xs-12 m-1 text-start ",
+      classauto: "btn btn-success m-2",
+      class2: "btn btn-warning m-2",
+      class3: "btn btn-warning m-2",
+      class6: "btn btn-warning m-2",
     };
   }
 
@@ -24,25 +28,49 @@ class StaffList extends Component {
 
   // Set col auto
   onColSetauto() {
-    this.setState({ col: "col-lg-3 col-md-5 col-xs-12 m-1 text-start " });
+    this.setState({
+      col: "col-lg-3 col-md-5 col-xs-12 m-1 text-start ",
+      classauto: "btn btn-success m-2",
+      class2: "btn btn-warning m-2",
+      class3: "btn btn-warning m-2",
+      class6: "btn btn-warning m-2",
+    });
     console.log(this.state.col);
   }
 
   // Set col = 2
   onColSet2() {
-    this.setState({ col: "col-5 m-1 text-start " });
+    this.setState({
+      col: "col-5 m-1 text-start ",
+      classauto: "btn btn-warning m-2",
+      class2: "btn btn-success m-2",
+      class3: "btn btn-warning m-2",
+      class6: "btn btn-warning m-2",
+    });
     console.log(this.state.col);
   }
 
   // Set col = 3
   onColSet3() {
-    this.setState({ col: "col-3 m-1 text-start " });
+    this.setState({
+      col: "col-3 m-1 text-start ",
+      classauto: "btn btn-warning m-2",
+      class2: "btn btn-warning m-2",
+      class3: "btn btn-success m-2",
+      class6: "btn btn-warning m-2",
+    });
     console.log(this.state.col);
   }
 
   // Set col = 6
   onColSet6() {
-    this.setState({ col: "col-1 m-1 text-start " });
+    this.setState({
+      col: "col-2  text-start ",
+      classauto: "btn btn-warning m-2",
+      class2: "btn btn-warning m-2",
+      class3: "btn btn-warning m-2",
+      class6: "btn btn-success m-2",
+    });
     console.log(this.state.col);
   }
 
@@ -91,28 +119,28 @@ class StaffList extends Component {
           <button
             onClick={() => this.onColSetauto()}
             id="btn-save "
-            className="btn btn-success m-2"
+            className={this.state.classauto}
           >
             Auto
           </button>
           <button
             onClick={() => this.onColSet2()}
             id="btn-save "
-            className="btn btn-success m-2"
+            className={this.state.class2}
           >
             Col-2
           </button>
           <button
             onClick={() => this.onColSet3()}
             id="btn-save"
-            className="btn btn-success m-2"
+            className={this.state.class3}
           >
             Col-3
           </button>
           <button
             onClick={() => this.onColSet6()}
             id="btn-save"
-            className="btn btn-success m-2"
+            className={this.state.class6}
           >
             Col-6
           </button>
