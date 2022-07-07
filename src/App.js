@@ -20,10 +20,6 @@ class App extends Component {
         <Navbar dark color="primary">
           <div className="container text-start ">
             <h4>Ứng dụng quản lý nhân sự v1.0</h4>
-            Số cột : <input id="input-col" />{" "}
-            <button id="btn-save" className="btn btn-success">
-              Save
-            </button>
           </div>
         </Navbar>
         <StaffList staffs={this.state.staffs} />
@@ -33,8 +29,3 @@ class App extends Component {
 }
 
 export default App;
-const col = document.getElementById("input-col");
-const saveBtn = document.getElementById("btn-save");
-saveBtn.addEventListener("click", function () {
-  console.log("abc");
-});

@@ -14,11 +14,36 @@ class StaffList extends Component {
 
     this.state = {
       selectedStaff: null,
+      col: "col-lg-3 col-md-5 col-xs-12 m-1 text-start ",
     };
   }
 
   onStaffSelect(staff) {
     this.setState({ selectedStaff: staff });
+  }
+
+  // Set col auto
+  onColSetauto() {
+    this.setState({ col: "col-lg-3 col-md-5 col-xs-12 m-1 text-start " });
+    console.log(this.state.col);
+  }
+
+  // Set col = 2
+  onColSet2() {
+    this.setState({ col: "col-5 m-1 text-start " });
+    console.log(this.state.col);
+  }
+
+  // Set col = 3
+  onColSet3() {
+    this.setState({ col: "col-3 m-1 text-start " });
+    console.log(this.state.col);
+  }
+
+  // Set col = 6
+  onColSet6() {
+    this.setState({ col: "col-1 m-1 text-start " });
+    console.log(this.state.col);
   }
 
   renderStaff(staff) {
@@ -43,17 +68,15 @@ class StaffList extends Component {
           <CardText>Số ngày đã làm thêm: {staff.overTime}</CardText>
         </Card>
       );
+    } else {
+      return <div></div>;
     }
   }
 
   render() {
-    console.log(this.props.staffs);
     const liststaff = this.props.staffs.map((staff) => {
       return (
-        <div
-          key={staff.id}
-          className="col-lg-3 col-md-5 col-xs-12 m-1 text-start"
-        >
+        <div key={staff.id} className={this.state.col}>
           <Card onClick={() => this.onStaffSelect(staff)}>
             <CardTitle>{staff.name}</CardTitle>
           </Card>
@@ -63,6 +86,37 @@ class StaffList extends Component {
 
     return (
       <div className="container">
+        <div>
+          {" "}
+          <button
+            onClick={() => this.onColSetauto()}
+            id="btn-save "
+            className="btn btn-success m-2"
+          >
+            Auto
+          </button>
+          <button
+            onClick={() => this.onColSet2()}
+            id="btn-save "
+            className="btn btn-success m-2"
+          >
+            Col-2
+          </button>
+          <button
+            onClick={() => this.onColSet3()}
+            id="btn-save"
+            className="btn btn-success m-2"
+          >
+            Col-3
+          </button>
+          <button
+            onClick={() => this.onColSet6()}
+            id="btn-save"
+            className="btn btn-success m-2"
+          >
+            Col-6
+          </button>
+        </div>
         <div className="row">{liststaff}</div>
         <div className="row m-1">
           {this.state.selectedStaff != null
