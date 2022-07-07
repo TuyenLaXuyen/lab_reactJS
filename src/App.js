@@ -18,8 +18,8 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar dark color="primary">
-          <div className="container">
-            <p>Ứng dụng quản lý nhân sự v1.0</p>
+          <div className="container text-start ">
+            <h4>Ứng dụng quản lý nhân sự v1.0</h4>
           </div>
         </Navbar>
         <StaffList staffs={this.state.staffs} />
