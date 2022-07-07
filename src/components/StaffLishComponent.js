@@ -77,7 +77,13 @@ class StaffList extends Component {
   renderStaff(staff) {
     if (staff != null) {
       return (
-        <Card className="col-lg-3 col-md-5 col-xs-12 m-1 text-start ">
+        <Card
+          style={{
+            backgroundColor: "#98ee80",
+            borderColor: "#333",
+          }}
+          className="col-lg-3 col-md-5 col-xs-12 m-1 text-start "
+        >
           <CardTitle tag="h3">{staff.name}</CardTitle>
           <CardText>
             Ngày sinh:{" "}
@@ -105,7 +111,13 @@ class StaffList extends Component {
     const liststaff = this.props.staffs.map((staff) => {
       return (
         <div key={staff.id} className={this.state.col}>
-          <Card onClick={() => this.onStaffSelect(staff)}>
+          <Card
+            style={{
+              backgroundColor: "#98ee80",
+              borderColor: "#333",
+            }}
+            onClick={() => this.onStaffSelect(staff)}
+          >
             <CardTitle>{staff.name}</CardTitle>
           </Card>
         </div>
