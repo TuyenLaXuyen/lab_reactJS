@@ -20,6 +20,7 @@ class App extends Component {
         <Navbar dark color="primary">
           <div className="container text-start ">
             <h4>Ứng dụng quản lý nhân sự v1.0</h4>
+            Số cột : <input id="input-col" />
           </div>
         </Navbar>
         <StaffList staffs={this.state.staffs} />
@@ -27,5 +28,6 @@ class App extends Component {
     );
   }
 }
-
+const col = document.getElementById("input-col").value;
+console.log(col);
 export default App;
