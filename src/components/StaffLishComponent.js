@@ -69,7 +69,6 @@ class StaffList extends Component {
             ? this.renderStaff(this.state.selectedStaff)
             : "Bấm vào tên nhân viên để xem thông tin"}
         </div>
-        <div className="row">Author is Tuyen</div>
       </div>
     );
   }
