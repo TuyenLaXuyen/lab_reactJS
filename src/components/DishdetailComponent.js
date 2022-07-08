@@ -21,22 +21,6 @@ class Dishdetail extends Component {
     this.setState({ selectedDish: dish });
   }
 
-  renderDish(dish) {
-    if (dish != null) {
-      return (
-        <Card className="col-12 col-md-5 m-1">
-          <CardImg width="100%" src={dish.image} alt={dish.name} />
-          <CardBody>
-            <CardTitle>{dish.name}</CardTitle>
-            <CardText>{dish.description}</CardText>
-          </CardBody>
-        </Card>
-      );
-    } else {
-      return <div></div>;
-    }
-  }
-
   RenderComments(comments) {
     if (comments != null)
       return (
@@ -66,24 +50,9 @@ class Dishdetail extends Component {
   }
 
   render() {
-    const menu = this.props.dishes.map((dish) => {
-      return (
-        <div key={dish.id} className="col-12 col-md-5 m-1">
-          <Card onClick={() => this.onDishSelect(dish)}>
-            <CardImg width="100%" src={dish.image} alt={dish.name} />
-            <CardImgOverlay>
-              <CardTitle>{dish.name}</CardTitle>
-            </CardImgOverlay>
-          </Card>
-        </div>
-      );
-    });
     return (
       <div className="container">
-        <div className="row">{menu}</div>
         <div className="row">
-          {this.renderDish(this.state.selectedDish)}
-
           {this.state.selectedDish != null &&
           this.state.selectedDish.comments != null
             ? this.RenderComments(this.state.selectedDish.comments)
